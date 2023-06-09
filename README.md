@@ -1,2 +1,2 @@
 # hyprfiles
-Hyprland Config files
+Hyprland config files
