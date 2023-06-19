@@ -44,6 +44,7 @@ bluez-qt 5.107.0-1
 bluez-utils 5.66-1
 bolt 0.9.5-1
 boost-libs 1.81.0-6
+botan2 2.19.3-1
 box2d 2.4.1-1
 bridge-utils 1.7.1-1
 brotli 1.0.9-12
@@ -266,6 +267,7 @@ imlib2 1.11.1-1
 iniparser 4.1-4
 intellij-idea-ce 2023.1.2-1
 intltool 0.51.0-6
+inxi 3.3.27.1-1
 iproute2 6.3.0-2
 iptables 1:1.8.9-1
 iputils 20221126-2
@@ -1215,6 +1217,7 @@ texlive-bin 2023.66984-10
 texlive-latex 2023.66594-13
 thin-provisioning-tools 1.0.4-1
 thunar 4.18.6-1
+thunderbird 102.12.0-1
 tinycompress 1.2.8-2
 tinyxml 2.6.2-10
 tlp 1.5.0-6
