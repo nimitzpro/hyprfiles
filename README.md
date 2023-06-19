@@ -1,8 +1,10 @@
 # hyprfiles
 Hyprland config files
 
-## General styling
+## Todo
+- Encrypt files and upload (ssh keys, gpg)..
 
+## General styling
 ### Colours
 - Electric Purple: #bf00ff
 - Cyan: #00ffff
