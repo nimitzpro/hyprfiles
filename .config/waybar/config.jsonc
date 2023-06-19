@@ -181,7 +181,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol", 
+        "on-click": "pavucontrol && hyprctl activewindow | hyprctl setprop address:$(grep -oP '(?<=Window )[0-9a-zA-Z]*') floating 1", 
 },
 //    "custom/media": {
 //        "format": "{icon} {}",
