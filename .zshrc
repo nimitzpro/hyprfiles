@@ -94,8 +94,8 @@ alias ll='ls --color=auto --human-readable --group-directories-first --classify 
 alias lla='ls --color=auto --human-readable --group-directories-first --classify -la'
 
 
-alias sup="rclone sync ~/Drive/ astroalex005:"
-alias sdown="rclone sync astroalex005: ~/Drive/"
+alias sup="rclone --verbose sync ~/Drive/ astroalex005:"
+alias sdown="rclone --verbose sync astroalex005: ~/Drive/"
 
 # Bluetooth device MACros
 alias btr5="wl-copy '40:ED:98:1B:7A:9E'"

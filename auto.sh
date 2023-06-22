@@ -10,11 +10,15 @@ cp -rfv ~/.zshrc .
 # cp -rfv ~/drive_secret.aes .
 cp -rfv ~/.gitconfig .
 cp -rfv ~/.vimrc .
+cp -rfv ~/.latexmkrc .
 
-mkdir -p .local/share
+mkdir -p ~/.local/share
 rsync -av ~/.local/share/fonts .local/share
 
-mkdir -p .config/fontconfig
-rsync -av .config/fontconfig .config
+mkdir -p ~/.config/fontconfig
+rsync -av ~/.config/fontconfig .config
+
+mkdir -p ~/.config/feh
+rsync -av ~/.config/feh .config
 
 pacman -Q > packages.txt
