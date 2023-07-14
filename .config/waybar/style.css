@@ -47,17 +47,19 @@ button {
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
+    transition: all 0.5s ease;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
     box-shadow: inset 0 -3px #bf00ff;
+    text-shadow: inherit;
 }
 
-/* #workspaces * {
-	font-family: serif; 
-} */
+#workspaces * {
+	font-family: ackaisyo, serif; 
+}
 
 #workspaces button {
     padding: 0 5px;
@@ -66,7 +68,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #workspaces button.urgent {

@@ -75,7 +75,7 @@ alias voldown="wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
 alias lightup="sudo light -A 5"
 alias lightdown="sudo light -U 5"
 
-alias lf="lfrun"
+# alias lf="lfrun"
 # Aliases
 alias cp='cp -iv --reflink=auto'
 alias rcp='rsync -v --progress'
@@ -94,8 +94,8 @@ alias ll='ls --color=auto --human-readable --group-directories-first --classify 
 alias lla='ls --color=auto --human-readable --group-directories-first --classify -la'
 
 
-alias sup="rclone --verbose sync ~/Drive/ astroalex005:"
-alias sdown="rclone --verbose sync astroalex005: ~/Drive/"
+alias sup="rclone --verbose --interactive sync ~/Drive/ astroalex005:"
+alias sdown="rclone --verbose --interactive sync astroalex005: ~/Drive/"
 
 # Bluetooth device MACros
 alias btr5="wl-copy '40:ED:98:1B:7A:9E'"
@@ -121,3 +121,15 @@ gpgd() {
         echo "add file names"
     fi
 }
+
+# USE LF TO SWITCH DIRECTORIES AND BIND IT TO CTRL-O
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'

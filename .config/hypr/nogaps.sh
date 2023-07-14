@@ -1,7 +1,7 @@
 #!/bin/sh
 
 gaps=$(hyprctl getoption general:gaps_out | grep -oP "(?<=int: ).*")
-echo "$gaps"
+# echo "$gaps"
 if [ "$gaps" -eq 5 ]; then
     hyprctl keyword general:gaps_out 0
     hyprctl keyword general:gaps_in 0
