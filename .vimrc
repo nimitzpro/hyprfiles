@@ -75,6 +75,9 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-w> :call system("wl-copy", @")<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <C-a> :w !sudo tee %<CR>
+nnoremap <C-q> :q<CR>
 "
 " " Using a non-default branch
 " Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -83,7 +86,7 @@ nnoremap <C-w> :call system("wl-copy", @")<CR>
 Plug 'fatih/vim-go', { 'tag': '*' }
 "
 " " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'nsf/gocode', { 'tag': 'v.20150304', 'rtp': 'vim' }
 "
 " " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

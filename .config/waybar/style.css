@@ -47,6 +47,7 @@ button {
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
+    font-size: 10px;
     transition: all 0.5s ease;
 }
 
@@ -55,6 +56,7 @@ button:hover {
     background: inherit;
     box-shadow: inset 0 -3px #bf00ff;
     text-shadow: inherit;
+    /* font-size: 16px; */
 }
 
 #workspaces * {
@@ -80,7 +82,7 @@ button:hover {
 	/* border-top: solid #bf00ff 3px; */
 	color: #bf00ff;
 	/*font-weight: 900;*/
-	background-color: rgba(0,0,0,0.25);
+	background-color: rgba(0,0,0,0.1);
 	box-shadow: inset 0 -3px #bf00ff;
 }
 

@@ -21,4 +21,7 @@ rsync -av ~/.config/fontconfig .config
 mkdir -p ~/.config/feh
 rsync -av ~/.config/feh .config
 
+mkdir -p ~/.config/swayidle
+rsync -av ~/.config/swayidle .config
+
 pacman -Q > packages.txt
