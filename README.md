@@ -17,6 +17,7 @@ Hyprland config files
 ### Fonts (14-16px)
 - General: Noto Sans (CJK/etc.)
 - Monospace: Inconsolata LGC Nerd Font Mono
+- Waybar Numbers: ackaisyo
 - Icons: FontAwesome
 - Stylistic: Z003, aAssassinNinja
 - Alts: Roboto, Helvetica
