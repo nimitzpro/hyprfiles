@@ -1492,6 +1492,7 @@ texlive-publishers 2023.66594-19
 texlive-xetex 2023.66594-19
 thin-provisioning-tools 1.0.4-1
 thunar 4.18.6-1
+thunar-volman 4.18.0-1
 thunderbird 115.0.1-1
 timidity++ 2.15.0-10
 tinycompress 1.2.8-2
