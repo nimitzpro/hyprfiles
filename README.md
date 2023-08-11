@@ -3,6 +3,11 @@ Hyprland config files
 
 ## Todo
 - Encrypt files and upload (ssh keys, gpg)..
+- Check reliable swayidle performance
+- Inhibit sleep lock button waybar fix
+- `lf` expand functionality (previews, icons, commands)
+- `nvim` expand
+- Overhaul waybar, add features (weather, ytdl)
 
 ## General styling
 ### Colours

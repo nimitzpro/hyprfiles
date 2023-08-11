@@ -1,4 +1,5 @@
-font=sans-serif 12
+font=Noto Sans Nerd Font, sans-serif 12
 background-color=#000000BB
 text-color=#FFFFFFFF
 default-timeout=8000
+anchor=bottom-right
