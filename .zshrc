@@ -105,6 +105,9 @@ alias sdown="rclone --verbose --interactive sync astroalex005: ~/Drive/"
 # Bluetooth device MACros
 alias btr5="wl-copy '40:ED:98:1B:7A:9E'"
 alias trusty="wl-copy '47:00:00:00:07:21'"
+BTR5='40:ED:98:1B:7A:9E'
+TRUSTY='47:00:00:00:07:21'
+
 
 
 gpge() {
