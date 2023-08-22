@@ -3,7 +3,7 @@
   // "position": "bottom", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
-  "spacing": 2, // Gaps between modules (4px)
+  // "spacing": 2, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
     "wlr/workspaces",
@@ -14,11 +14,13 @@
   //    "modules-center": ["hyprland/window"], "mpd"?
   "modules-right": [
     "idle_inhibitor",
+    "custom/weather",
     "pulseaudio",
     "bluetooth",
     "network",
     "cpu",
     "memory",
+    "disk",
     "temperature",
     "backlight",
     "wlr/language",
@@ -140,9 +142,20 @@
       "deactivated": ""
     }
   },
+  "custom/weather": {
+    "format": "{alt}: {}",
+    "format-alt": "{}",
+    "format-alt-click": "click-right",
+    "interval": 1800,
+    "return-type": "json",
+    "exec": "~/.config/waybar/weather.sh",
+    "exec-if": "ping wttr.in -c1",
+    "on-click": "kitty zsh -c 'sleep 0.01; exec curl -s https://en.wttr.in'"
+    // "on-click": "gnome-weather"
+  },
   "tray": {
-    // "icon-size": 21,
-    "spacing": 10
+    "icon-size": 18,
+    //    "spacing": 10
   },
   "clock": {
     // "timezone": "America/New_York",
@@ -183,11 +196,11 @@
       "󰪥"
     ]
   },
-  // "disk": {
-  //   "path": "/",
-  //   "interval": 30,
-  //   "format": "{percentage_free}% free on {path}"
-  // },
+  "disk": {
+    "path": "/",
+    "interval": 30,
+    "format": "{free} 󰒋",
+  },
   "temperature": {
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -224,28 +237,36 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ", //󰂄
+    "format-charging": "{capacity}% {icon}", //󰂄
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-      //      "󰁺",
-      //      "󰁻",
-      //      "󰁼",
-      //      "󰁽",
-      //      "󰁿",
-      //      "󰂀",
-      //      "󰂀",
-      //      "󰂁",
-      //      "󰂂",
-      //      "󰁹"
-    ]
+    "format-full": "󰁹",
+    "format-icons": {
+      "discharging": [
+        //      "",
+        //      "",
+        //      "",
+        //      "",
+        //      ""
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁿",
+        "󰂀",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "charging": [
+        "󰢟",
+        "󰢜",
+        "󰢝",
+        "󰢞"
+      ]
+    },
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -255,6 +276,7 @@
     // "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     //"format-disconnected": "Disconnected ⚠",
+    "format-disabled": "󰤯",
     "format-disconnected": "⚠",
     "tooltip-format": "{essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr} ", // formerly "format-alt"
     "format-icons": [
@@ -268,7 +290,8 @@
   },
   "bluetooth": {
     "format": "",
-    "format-connected": " {device_alias}",
+    // "format-connected": "{device_alias} ",
+    "format-connected": "",
     "format-disabled": "",
     "format-connected-battery": " {device_alias} {device_battery_percentage}%",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
@@ -280,9 +303,9 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}  {format_source}",
-    "format-bluetooth": "{volume}% {icon}  {format_source}",
-    "format-bluetooth-muted": "󰖁{icon}  {format_source}",
-    "format-muted": "󰖁{format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "󰖁{icon} {format_source}",
+    "format-muted": "󰖁 {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {

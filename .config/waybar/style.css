@@ -15,7 +15,7 @@ window#waybar {
 
 #window {
   color: #00ffff; /*#ff0ff0;*/
-  margin-left: 5px;
+  margin-left: 6px;
 }
 
 button {
@@ -44,11 +44,11 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
-#tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
+#mpd,
+#weather {
   padding: 0 5px;
 }
 
@@ -83,13 +83,17 @@ button:hover {
     color: #00ffff;
 }
 
+#disk {
+    color: #ff66ff;
+}
+
 #cpu {
   color: #bf00ff;
   /* padding-right: 2px;*/
 }
 
 #memory {
-  color: #ef30ff;
+  color: #ef33ff;
   /*padding-left: 0px;*/
 }
 
@@ -119,15 +123,15 @@ button:hover {
 }
 
 #bluetooth.connected {
-    color: #55a6df;
+    color: #77c8ff;
 }
 
 #bluetooth {
-    color: #7c7c7c;
+    color: #ff5252;
 }
 
 #bluetooth.disabled {
-    color: #ff5252;
+    color: #7c7c7c;
 }
 
 #network {
@@ -160,6 +164,18 @@ button:hover {
 
 #temperature.critical {
     color: #eb4d4b;
+}
+
+#tray > * {
+  padding: 0 0px;
+}
+
+#tray > * > * {
+  padding: 0 5px;
+}
+
+#tray > *:last-child {
+  padding-right: 5px;
 }
 
 #tray > .passive {
