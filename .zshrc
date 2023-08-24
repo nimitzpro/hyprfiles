@@ -108,7 +108,10 @@ alias trusty="wl-copy '47:00:00:00:07:21'"
 BTR5='40:ED:98:1B:7A:9E'
 TRUSTY='47:00:00:00:07:21'
 
-
+# z alias
+# alias z="cd"
+alias btc="bluetoothctl connect"
+alias btd="bluetoothctl disconnect"
 
 gpge() {
     if [ "$1" != "" ] # or better, if [ -n "$1" ]

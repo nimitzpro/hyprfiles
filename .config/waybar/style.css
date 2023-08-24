@@ -48,8 +48,12 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mpd,
-#weather {
+#custom-weather {
   padding: 0 5px;
+}
+
+#custom-weather {
+  color: pink;
 }
 
 #workspaces button {

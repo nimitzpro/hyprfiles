@@ -140,7 +140,8 @@
     "format-icons": {
       "activated": "",
       "deactivated": ""
-    }
+    },
+    "on-click": "~/.config/waybar/idle_toggle.sh"
   },
   "custom/weather": {
     "format": "{alt}: {}",
