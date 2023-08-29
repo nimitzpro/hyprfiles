@@ -2,11 +2,18 @@
 Hyprland config files
 
 ## Todo
+- transparency on selected line
+- autoformat
+- cd neotree
+- pseudorandom c++
+- weather popout terminal fix
+- idleinhibitor on windows
+
+## Other
 - Encrypt files and upload (ssh keys, gpg)..
 - Check reliable swayidle performance
-- Inhibit sleep lock button waybar fix
 - `lf` expand functionality (previews, icons, commands)
-- `nvim` expand
+- `nvim` enhance
 - Overhaul waybar, add features (weather, ytdl)
 
 ## General styling
