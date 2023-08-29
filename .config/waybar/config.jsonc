@@ -151,7 +151,8 @@
     "return-type": "json",
     "exec": "~/.config/waybar/weather.sh",
     "exec-if": "ping wttr.in -c1",
-    "on-click": "kitty -e zsh -i -c 'sleep 0.01; exec curl wttr.in'"
+    "on-click": "~/.config/waybar/weather.sh"
+    // "on-click": "kitty -e zsh -i -c 'sleep 0.01; exec curl wttr.in'"
     // "on-click": "gnome-weather"
   },
   "tray": {

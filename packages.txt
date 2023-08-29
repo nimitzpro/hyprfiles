@@ -247,6 +247,7 @@ gnu-free-fonts 20120503-8
 gnumeric 1.12.55-3
 gnupg 2.2.41-1
 gnutls 3.8.1-1
+go 2:1.21.0-1
 gobject-introspection-runtime 1.76.1-3
 goffice 0.10.55-1
 gperftools 2.10-3
@@ -736,6 +737,7 @@ libxaw 1.0.15-1
 libxcb 1.16-1
 libxcomposite 0.4.6-1
 libxcrypt 4.4.36-1
+libxcrypt-compat 4.4.36-1
 libxcursor 1.2.1-3
 libxcvt 0.1.2-1
 libxdamage 1.1.6-1
@@ -809,6 +811,7 @@ mesa-utils 9.0.0-2
 meson 1.2.1-1
 microsocks 1.0.3-1
 microsoft-gsl 4.0.0-1
+mimalloc 2.1.2-1
 minecraft-launcher 1:1.0.1221-1
 miniupnpc 2.2.4-2
 minizip 1:1.3-1
@@ -816,6 +819,7 @@ minizip-ng 4.0.1-1
 mkinitcpio 36-1
 mkinitcpio-busybox 1.36.1-1
 mobile-broadband-provider-info 20230416-1
+mold 2.1.0-1
 mpd 0.23.13-3
 mpfr 4.2.1-1
 mpg123 1.31.3-1
@@ -1073,6 +1077,8 @@ python-entrypoints 0.4-3
 python-evdev 1.6.1-2
 python-executing 1.2.0-3
 python-fastjsonschema 2.18.0-1
+python-flask 2.2.5-1
+python-flask-cors 4.0.0-1
 python-fqdn 1.5.1-2
 python-gobject 3.44.1-4
 python-html2text 2020.1.16-9
@@ -1081,6 +1087,7 @@ python-inflect 7.0.0-1
 python-installer 0.7.0-3
 python-ipykernel 6.25.1-1
 python-isoduration 20.11.0-3
+python-itsdangerous 2.1.2-3
 python-jaraco.context 4.3.0-3
 python-jaraco.functools 3.8.1-1
 python-jaraco.text 3.11.1-3
@@ -1097,6 +1104,7 @@ python-jupyter-core 5.3.1-1
 python-jupyter-events 0.7.0-1
 python-jupyterlab-server 2.24.0-1
 python-lxml 4.9.2-3
+python-markdown 3.4.4-1
 python-markdown-it-py 3.0.0-1
 python-markupsafe 2.1.3-1
 python-matplotlib-inline 0.1.6-4
@@ -1107,6 +1115,7 @@ python-more-itertools 10.1.0-1
 python-nest-asyncio 1.5.7-1
 python-numpy 1.25.1-1
 python-ordered-set 4.1.0-4
+python-orjson 3.9.5-1
 python-overrides 7.4.0-1
 python-packaging 23.1-1
 python-pandocfilters 1.5.0-3
@@ -1136,6 +1145,7 @@ python-pyqt6-sip 13.5.2-1
 python-pyqt6-webengine 6.5.0-2
 python-pyrate-limiter 2.10.0-1
 python-pyrsistent 0.19.3-3
+python-pysocks 1.7.1-8
 python-pytz 2023.3-1
 python-pyzmq 25.1.1-1
 python-referencing 0.30.2-1
@@ -1167,10 +1177,12 @@ python-uc-micro-py 1.0.2-1
 python-uri-template 1.3.0-1
 python-urllib3 1.26.15-1
 python-validate-pyproject 0.13-1
+python-waitress 2.1.2-2
 python-wcwidth 0.2.6-1
 python-webcolors 1.13-2
 python-webencodings 0.5.1-10
 python-websocket-client 1.6.2-1
+python-werkzeug 2.3.2-1
 python-wheel 0.40.0-3
 python-yaml 6.0.1-2
 qca-qt5 2.3.7-1
@@ -1215,6 +1227,8 @@ qt5-x11extras 5.15.10-1
 qt5-xmlpatterns 5.15.10-1
 qt6-base 6.5.2-1
 qt6-declarative 6.5.2-2
+qt6-multimedia 6.5.2-1
+qt6-multimedia-ffmpeg 6.5.2-1
 qt6-positioning 6.5.2-1
 qt6-svg 6.5.2-1
 qt6-translations 6.5.2-1
@@ -1506,6 +1520,7 @@ xxhash 0.8.2-1
 xz 5.4.4-1
 yajl 2.1.0-5
 yaml-cpp 0.7.0-2
+yarn 1.22.19-1
 yup 1.1.8-3
 zapzap 4.4.6-1
 zathura 0.5.2-2

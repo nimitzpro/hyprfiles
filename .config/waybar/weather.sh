@@ -49,7 +49,7 @@ info=$(curl -s https://wttr.in\?0qnT)
 location=$(head -1 <<<"$info")
 city=$(cut -d',' -f1 <<<"$location")
 country=$(cut -d' ' -f2 <<<"$location")
-temperature=$(sed '4q;d' <<<"$info" | grep -oE "[+\-\(\)]([0-9]+.*)" | sed 's/ //' | xargs)
+temperature=$(sed '4q;d' <<<"$info" | grep -oE "[+\-\(\)]*([0-9]+.*)" | sed 's/ //' | xargs)
 condition=$(sed '3q;d' <<<"$info" | grep -oE "[a-zA-Z]+[a-zA-Z ]*" | xargs)
 wind=$(sed '5q;d' <<<"$info" | grep -oE '.{2}[0-9]+.*$' | xargs)
 visibility=$(sed '6q;d' <<<"$info" | grep -oE "[0-9]+.*$" | xargs)
@@ -100,4 +100,4 @@ case $(echo ${condition} | tr '[:upper:]' '[:lower:]') in
 	;;
 esac
 
-echo -e "{\"text\":\""\<span font=\'Font Awesome 5 Free 10\'\>$icon\<\/span\>" $temperature\", \"class\": \"weather\", \"alt\":\""${city}"\", \"tooltip\":\"${city}, ${country}Temp:	  $temperatureWind:	   $windVisibility:	$visibilityRainfall:		$precipitation\"}"
+echo -e "{\"text\":\""\<span font=\'Font Awesome 5 Free 10\'\>$icon\<\/span\>" $temperature\", \"class\": \"weather\", \"alt\":\"${city}\", \"tooltip\":\"${city}, ${country}Temp:	  $temperatureWind:	   $windVisibility:	$visibilityRainfall:		$precipitation\"}"
