@@ -1,50 +1,66 @@
-#!/bin/bash
+#!/bin/sh
 
 # wttr.in's location service is a bit shit
-location=$1
-if [[ -z "$1" ]]; then
-	ifconfigco=$(curl -sS ifconfig.co/json)
-	city=$(echo $ifconfigco | jq ".city")
-	country_code=$(echo $ifconfigco | jq ".country_iso")
-
-	location=$(echo $city,$country_code | sed --expression "s/\"//g")
-fi
+# location=$1
+# if [[ -z "$1" ]]; then
+# 	ifconfigco=$(curl -sS ifconfig.co/json)
+# 	city=$(echo $ifconfigco | jq ".city")
+#
+# 	# 	if [[ $city -eq "" ]]; then
+# 	# 		$city = "N/A"
+# 	# 	fi
+#
+# 	country_code=$(echo $ifconfigco | jq ".country_iso")
+#
+# 	location=$(echo $city,$country_code | sed --expression "s/\"//g")
+# fi
 
 # Set up caching to avoid tons of reqs to wttr
-cachedir=~/.cache/rbn
-cachefile=${0##*/}-$location
+# cachedir=~/.cache/rbn
+# cachefile=${0##*/}-$location
+#
+# if [ ! -d $cachedir ]; then
+# 	mkdir -p $cachedir
+# fi
+#
+# if [ ! -f $cachedir/$cachefile ]; then
+# 	touch $cachedir/$cachefile
+# fi
+#
+# # Save current IFS
+# SAVEIFS=$IFS
+# # Change IFS to new line.
+# IFS=$'\n'
+#
+# cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
+# if [ $cacheage -gt 1740 ] || [ ! -s $cachedir/$cachefile ]; then
+# 	data=($(curl -s https://en.wttr.in/$location\?0qnT 2>&1))
+# 	echo ${data[0]} | cut -f1 -d, >$cachedir/$cachefile
+# 	echo ${data[1]} | sed -E 's/^.{15}//' >>$cachedir/$cachefile
+# 	echo ${data[2]} | sed -E 's/^.{15}//' >>$cachedir/$cachefile
+# fi
 
-if [ ! -d $cachedir ]; then
-	mkdir -p $cachedir
-fi
+# weather=($(cat $cachedir/$cachefile))
+#
+# # Restore IFSClear
+# IFS=$SAVEIFS
 
-if [ ! -f $cachedir/$cachefile ]; then
-	touch $cachedir/$cachefile
-fi
+info=$(curl -s https://wttr.in\?0qnT)
+location=$(head -1 <<<"$info")
+city=$(cut -d',' -f1 <<<"$location")
+country=$(cut -d' ' -f2 <<<"$location")
+temperature=$(sed '4q;d' <<<"$info" | grep -oE "[+\-\(\)]([0-9]+.*)" | sed 's/ //' | xargs)
+condition=$(sed '3q;d' <<<"$info" | grep -oE "[a-zA-Z]+[a-zA-Z ]*" | xargs)
+wind=$(sed '5q;d' <<<"$info" | grep -oE '.{2}[0-9]+.*$' | xargs)
+visibility=$(sed '6q;d' <<<"$info" | grep -oE "[0-9]+.*$" | xargs)
+precipitation=$(sed '7q;d' <<<"$info" | grep -oE "[0-9.]+.*$" | xargs)
 
-# Save current IFS
-SAVEIFS=$IFS
-# Change IFS to new line.
-IFS=$'\n'
-
-cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
-if [ $cacheage -gt 1740 ] || [ ! -s $cachedir/$cachefile ]; then
-	data=($(curl -s https://en.wttr.in/$location\?0qnT 2>&1))
-	echo ${data[0]} | cut -f1 -d, >$cachedir/$cachefile
-	echo ${data[1]} | sed -E 's/^.{15}//' >>$cachedir/$cachefile
-	echo ${data[2]} | sed -E 's/^.{15}//' >>$cachedir/$cachefile
-fi
-
-weather=($(cat $cachedir/$cachefile))
-
-# Restore IFSClear
-IFS=$SAVEIFS
-
-temperature=$(echo ${weather[2]} | sed -E 's/ //g')
+# weather=$(${info[0]} | cut -f1 -d)
+# temperature=$(echo ${weather[2]} | sed -E 's/ //g')
 
 # https://fontawesome.com/icons?s=solid&c=weather
 # echo $(echo ${weather[1]##*,} | tr '[:upper:]' '[:lower:]')
-case $(echo ${weather[1]##*,} | tr '[:upper:]' '[:lower:]') in
+case $(echo ${condition} | tr '[:upper:]' '[:lower:]') in
 "clear" | "sunny")
 	icon=""
 	;;
@@ -84,4 +100,4 @@ case $(echo ${weather[1]##*,} | tr '[:upper:]' '[:lower:]') in
 	;;
 esac
 
-echo -e "{\"text\":\""\<span font=\'Font Awesome 5 Free 10\'\>$icon\<\/span\>" $temperature\", \"class\": \"weather\", \"alt\":\""${weather[0]}"\", \"tooltip\":\""${weather[0]}: $temperature ${weather[1]}"\"}"
+echo -e "{\"text\":\""\<span font=\'Font Awesome 5 Free 10\'\>$icon\<\/span\>" $temperature\", \"class\": \"weather\", \"alt\":\""${city}"\", \"tooltip\":\"${city}, ${country}Temp:	  $temperatureWind:	   $windVisibility:	$visibilityRainfall:		$precipitation\"}"

@@ -113,6 +113,8 @@ TRUSTY='47:00:00:00:07:21'
 alias btc="bluetoothctl connect"
 alias btd="bluetoothctl disconnect"
 
+alias commands="echo 'gc = comment/uncomment\n%s//ge = Find and Replace\n'"
+
 gpge() {
     if [ "$1" != "" ] # or better, if [ -n "$1" ]
     then

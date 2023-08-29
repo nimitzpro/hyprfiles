@@ -144,14 +144,14 @@
     "on-click": "~/.config/waybar/idle_toggle.sh"
   },
   "custom/weather": {
-    "format": "{alt}: {}",
-    "format-alt": "{}",
+    "format": "{}",
+    "format-alt": "{alt}: {}",
     "format-alt-click": "click-right",
     "interval": 1800,
     "return-type": "json",
     "exec": "~/.config/waybar/weather.sh",
     "exec-if": "ping wttr.in -c1",
-    "on-click": "kitty zsh -c 'sleep 0.01; exec curl -s https://en.wttr.in'"
+    "on-click": "kitty -e zsh -i -c 'sleep 0.01; exec curl wttr.in'"
     // "on-click": "gnome-weather"
   },
   "tray": {
