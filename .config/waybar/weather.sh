@@ -55,6 +55,8 @@ wind=$(sed '5q;d' <<<"$info" | grep -oE '.{2}[0-9]+.*$' | xargs)
 visibility=$(sed '6q;d' <<<"$info" | grep -oE "[0-9]+.*$" | xargs)
 precipitation=$(sed '7q;d' <<<"$info" | grep -oE "[0-9.]+.*$" | xargs)
 
+time=$(date '+%X%t%t%x')
+
 # weather=$(${info[0]} | cut -f1 -d)
 # temperature=$(echo ${weather[2]} | sed -E 's/ //g')
 
@@ -100,4 +102,4 @@ case $(echo ${condition} | tr '[:upper:]' '[:lower:]') in
 	;;
 esac
 
-echo -e "{\"text\":\""\<span font=\'Font Awesome 5 Free 10\'\>$icon\<\/span\>" $temperature\", \"class\": \"weather\", \"alt\":\"${city}\", \"tooltip\":\"${city}, ${country}Temp:	  $temperatureWind:	   $windVisibility:	$visibilityRainfall:		$precipitation\"}"
+echo -e "{\"text\":\""\<span font=\'Font Awesome 5 Free 10\'\>$icon\<\/span\>" $temperature\", \"class\": \"weather\", \"alt\":\"${city}\", \"tooltip\":\"${city}, ${country}Temp:	  $temperatureWind:	   $windVisibility:	$visibilityRainfall:		$precipitation$time\"}"
