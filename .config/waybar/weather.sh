@@ -45,7 +45,13 @@
 # # Restore IFSClear
 # IFS=$SAVEIFS
 
-info=$(curl -s https://wttr.in\?0qnT)
+location_string=$(cat location.txt)
+
+if [[ -z location_string ]]; then
+  info=$(curl -s https://wttr.in\?0qnT)
+else
+  info=$(curl -s https://wttr.in/$location_string)
+fi
 location=$(head -1 <<<"$info")
 city=$(cut -d',' -f1 <<<"$location")
 country=$(cut -d' ' -f2 <<<"$location")
