@@ -115,8 +115,8 @@ alias btd="bluetoothctl disconnect"
 
 alias commands="echo 'gc = comment/uncomment\n%s//ge = Find and Replace\n'"
 
-alias hypr="nvim ~/.config/hyprland/hyprland.conf"
-alias bar="nvim ~/.config/waybar/config.jsonc"
+alias hypr="nvim ~/.config/hyprland"
+alias bar="nvim ~/.config/waybar"
 alias rebar="killall waybar && nohup waybar &"
 
 
