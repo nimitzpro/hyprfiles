@@ -115,6 +115,11 @@ alias btd="bluetoothctl disconnect"
 
 alias commands="echo 'gc = comment/uncomment\n%s//ge = Find and Replace\n'"
 
+alias hypr="nvim ~/.config/hyprland/hyprland.conf"
+alias bar="nvim ~/.config/waybar/config.jsonc"
+alias rebar="killall waybar && nohup waybar &"
+
+
 gpge() {
     if [ "$1" != "" ] # or better, if [ -n "$1" ]
     then
