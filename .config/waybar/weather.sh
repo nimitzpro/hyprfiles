@@ -45,25 +45,28 @@
 # # Restore IFSClear
 # IFS=$SAVEIFS
 
-location_string=$(cat location.txt)
+location_string=$(head -n 1 "/home/nimitz/.config/waybar/loc.txt" | sed 's/ /%20/g')
+# echo ${location_string} > test.txt
+# if [[ -z $location_string ]]; then
+#   winfo=$(curl -s https://wttr.in\?0qnTm)
+# else
+#   winfo=$(curl "https://wttr.in/${location_string}?0qnTm")
+# fi
 
-if [[ -z location_string ]]; then
-  info=$(curl -s https://wttr.in\?0qnT)
-else
-  info=$(curl -s https://wttr.in/$location_string)
-fi
-location=$(head -1 <<<"$info")
+winfo=$(curl -s https://wttr.in\?0qnTm)
+
+location=$(head -1 <<<"$winfo") # | sed 's/\\//')
 city=$(cut -d',' -f1 <<<"$location")
-country=$(cut -d' ' -f2 <<<"$location")
-temperature=$(sed '4q;d' <<<"$info" | grep -oE "[+\-\(\)]*([0-9]+.*)" | sed 's/ //' | xargs)
-condition=$(sed '3q;d' <<<"$info" | grep -oE "[a-zA-Z]+[a-zA-Z ]*" | xargs)
-wind=$(sed '5q;d' <<<"$info" | grep -oE '.{2}[0-9]+.*$' | xargs)
-visibility=$(sed '6q;d' <<<"$info" | grep -oE "[0-9]+.*$" | xargs)
-precipitation=$(sed '7q;d' <<<"$info" | grep -oE "[0-9.]+.*$" | xargs)
+country=$(sed 's/^.*, //' <<<"$location")
+temperature=$(sed '4q;d' <<<"$winfo" | grep -oE "[+\-\(\)]*([0-9]+.*)" | sed 's/ //' | xargs)
+condition=$(sed '3q;d' <<<"$winfo" | grep -oE "[a-zA-Z]+[a-zA-Z ]*" | xargs)
+wind=$(sed '5q;d' <<<"$winfo" | grep -oE '.{2}[0-9]+.*$' | xargs)
+visibility=$(sed '6q;d' <<<"$winfo" | grep -oE "[0-9]+.*$" | xargs)
+precipitation=$(sed '7q;d' <<<"$winfo" | grep -oE "[0-9.]+.*$" | xargs)
 
 time=$(date '+%X%t%t%x')
 
-# weather=$(${info[0]} | cut -f1 -d)
+# weather=$(${winfo[0]} | cut -f1 -d)
 # temperature=$(echo ${weather[2]} | sed -E 's/ //g')
 
 # https://fontawesome.com/icons?s=solid&c=weather
