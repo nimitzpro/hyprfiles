@@ -14,7 +14,7 @@ cp -rfv ~/.latexmkrc .
 
 # mkdir -p ~/.local/share
 rsync -av ~/.local/share/fonts .local/share
-#
+
 # mkdir -p ~/.config/fontconfig
 rsync -av ~/.config/fontconfig .config
 
@@ -25,5 +25,12 @@ rsync -av ~/.config/feh .config
 rsync -av ~/.config/swayidle .config
 
 rsync -av ~/.config/darkman .config
+
+rsync -av ~/.config/lf .config
+
+rsync -av ~/.config/nvim .config
+
+# rm -rf ./.config
+# cp -R ~/.config ./
 
 pacman -Q >packages.txt
