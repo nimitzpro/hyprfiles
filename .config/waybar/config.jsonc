@@ -6,9 +6,9 @@
   // "spacing": 2, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "wlr/workspaces",
-    "wlr/mode",
-    "wlr/scratchpad",
+    "hyprland/workspaces",
+    // "wlr/mode",
+    // "wlr/scratchpad",
     "hyprland/window"
   ],
   //    "modules-center": ["hyprland/window"], "mpd"?
@@ -44,7 +44,7 @@
   //         "default": ""
   //     }
   // },
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
@@ -59,7 +59,7 @@
       "7": [],
       "8": [],
       "9": [],
-      "10": [],
+      "10": []
     },
     /*"format-icons": {
             "1": "I",
@@ -84,7 +84,7 @@
       "7": "七",
       "8": "八",
       "9": "九",
-      "10": "十",
+      "10": "十"
       // "urgent": "",
     },
     "sort-by-number": true

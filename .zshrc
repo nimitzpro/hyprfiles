@@ -9,6 +9,15 @@
 # bindkey  "^[[3~"  delete-char
 
 export EDITOR="vim"
+export READER="zathura"
+export VISUAL="nvim"
+export TERMINAL="kitty"
+export BROWSER="firefox"
+export VIDEO="mpv"
+export IMAGE="feh"
+export COLORTERM="truecolor"
+export WM="hyprland"
+export PAGER="less"
 
 typeset -g -A key
 key[Home]="${terminfo[khome]}"
@@ -90,7 +99,6 @@ alias chmod="chmod -c"
 alias chown="chown -c"
 alias mkdir="mkdir -v"
 alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
 alias ls='exa'
 alias ll='exa --classify -l'
 alias lla='exa --classify -la'
@@ -98,6 +106,7 @@ alias lla='exa --classify -la'
 # alias ll='ls --color=auto --human-readable --group-directories-first --classify -l'
 # alias lla='ls --color=auto --human-readable --group-directories-first --classify -la'
 
+alias pacsize="pacman -Qi | grep -E '^(Name|Installed)' | cut -f2 -d':' | paste - - | column -t | sort -nrk 2 | grep MiB | less"
 
 alias sup="rclone --verbose --interactive sync ~/Drive/ astroalex005:"
 alias sdown="rclone --verbose --interactive sync astroalex005: ~/Drive/"
@@ -119,6 +128,8 @@ alias hypr="nvim ~/.config/hyprland"
 alias bar="nvim ~/.config/waybar"
 alias rebar="killall waybar && nohup waybar &"
 
+
+export PATH=$PATH:$GOPATH/bin
 
 gpge() {
     if [ "$1" != "" ] # or better, if [ -n "$1" ]

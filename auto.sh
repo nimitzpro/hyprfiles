@@ -12,16 +12,18 @@ cp -rfv ~/.gitconfig .
 cp -rfv ~/.vimrc .
 cp -rfv ~/.latexmkrc .
 
-mkdir -p ~/.local/share
+# mkdir -p ~/.local/share
 rsync -av ~/.local/share/fonts .local/share
-
-mkdir -p ~/.config/fontconfig
+#
+# mkdir -p ~/.config/fontconfig
 rsync -av ~/.config/fontconfig .config
 
-mkdir -p ~/.config/feh
+# mkdir -p ~/.config/feh
 rsync -av ~/.config/feh .config
 
-mkdir -p ~/.config/swayidle
+# mkdir -p ~/.config/swayidle
 rsync -av ~/.config/swayidle .config
 
-pacman -Q > packages.txt
+rsync -av ~/.config/darkman .config
+
+pacman -Q >packages.txt
