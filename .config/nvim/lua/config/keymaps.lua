@@ -19,3 +19,6 @@ end
 
 -- any leader key
 map("n", "<leader>v", ":call sml#mode_on()<CR>", { desc = "Select line" })
+
+-- map("n", "zR", require("ufo").openAllFolds)
+-- map("n", "zM", require("ufo").closeAllFolds)
