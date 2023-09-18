@@ -99,9 +99,9 @@ alias chmod="chmod -c"
 alias chown="chown -c"
 alias mkdir="mkdir -v"
 alias grep='grep --colour=auto'
-alias ls='exa'
-alias ll='exa --classify -l'
-alias lla='exa --classify -la'
+alias ls='eza'
+alias ll='eza --classify -l'
+alias lla='eza --classify -la'
 # alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 # alias ll='ls --color=auto --human-readable --group-directories-first --classify -l'
 # alias lla='ls --color=auto --human-readable --group-directories-first --classify -la'
