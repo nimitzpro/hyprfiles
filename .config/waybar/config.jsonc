@@ -141,6 +141,7 @@
       "activated": "",
       "deactivated": ""
     },
+    "start-activated": "~/.config/waybar/idle_state.sh",
     "on-click": "~/.config/waybar/idle_toggle.sh"
   },
   "custom/weather": {
