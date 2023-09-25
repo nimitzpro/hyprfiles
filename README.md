@@ -2,19 +2,17 @@
 Hyprland config files
 
 ## Todo
-- transparency on selected line
-- autoformat
-- cd neotree
-- pseudorandom c++
-- weather popout terminal fix
-- idleinhibitor on windows
+- neovim transparency on selected line
+- auto cd nvim into cwd on opening file
+- fix weather module instability, implement popout terminal
+- idleinhibitor on specific windows (e.g. YouTube, highlights window but doesn't function)
 
 ## Other
 - Encrypt files and upload (ssh keys, gpg)..
 - Check reliable swayidle performance
-- `lf` expand functionality (previews, icons, commands)
+- `lf` expand functionality (previews, commands)
 - `nvim` enhance
-- Overhaul waybar, add features (weather, ytdl)
+- waybar enhance
 
 ## General styling
 ### Colours
