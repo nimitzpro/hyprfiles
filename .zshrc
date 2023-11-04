@@ -268,3 +268,7 @@ fi
 # To initialize zoxide, add this to your configuration (usually ~/.zshrc):
 #
 eval "$(zoxide init zsh)"
+
+source "$HOME/git-projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/git-projects/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$HOME/git-projects/zsh-autosuggestions/zsh-autosuggestions.zsh"

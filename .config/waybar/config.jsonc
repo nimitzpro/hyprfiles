@@ -13,8 +13,10 @@
   ],
   //    "modules-center": ["hyprland/window"], "mpd"?
   "modules-right": [
+    "mpris",
     "idle_inhibitor",
-    // "custom/weather", // unstable behaviour,crashes bar
+    "custom/weather", // unstable behaviour,crashes bar
+    // "cava", // waybar-cava fails to compile, using regular waybar for now
     "pulseaudio",
     "bluetooth",
     "network",
@@ -45,35 +47,11 @@
   //     }
   // },
   "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
+    // "disable-scroll": true,
+    "active-only": false,
+    "all-outputs": false,
     "on-click": "activate",
     "format": "{icon}",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
-    },
-    /*"format-icons": {
-            "1": "I",
-            "2": "II",
-            "3": "III",
-            "4": "IV",
-            "5": "V",
-            "6": "VI",
-            "7": "VII",
-            "8": "VIII",
-            "9": "IX",
-            "10": "X",
-            "urgent": "",
-        },*/
     "format-icons": {
       "1": "一",
       "2": "二",
@@ -84,7 +62,27 @@
       "7": "七",
       "8": "八",
       "9": "九",
-      "10": "十"
+      "10": "十",
+      // "11": "<span color='black'>一</span>",
+      // "12": "<span color='black'>二</span>",
+      // "13": "<span color='black'>三</span>",
+      // "14": "<span color='black'>四</span>",
+      // "15": "<span color='black'>五</span>",
+      // "16": "<span color='black'>六</span>",
+      // "17": "<span color='black'>七</span>",
+      // "18": "<span color='black'>八</span>",
+      // "19": "<span color='black'>九</span>",
+      // "20": "<span color='black'>十</span>"
+      "11": "I",
+      "12": "II",
+      "13": "III",
+      "14": "IV",
+      "15": "V",
+      "16": "VI",
+      "17": "VII",
+      "18": "VIII",
+      "19": "IX",
+      "20": "X",
       // "urgent": "",
     },
     "sort-by-number": true
@@ -144,17 +142,25 @@
     "start-activated": "~/.config/waybar/idle_state.sh",
     "on-click": "~/.config/waybar/idle_toggle.sh"
   },
+  // "custom/weather": {
+  //   "format": "{}",
+  //   "format-alt": "{alt}: {}",
+  //   "format-alt-click": "click-right",
+  //   "interval": 1800,
+  //   "return-type": "json",
+  //   "exec": "~/.config/waybar/weather.sh",
+  //   "exec-if": "ping wttr.in -c1",
+  //   "on-click": "~/.config/waybar/weather.sh"
+  //   // "on-click": "kitty -e zsh -i -c 'sleep 0.01; exec curl wttr.in'"
+  //   // "on-click": "gnome-weather"
+  // },
   "custom/weather": {
-    "format": "{}",
-    "format-alt": "{alt}: {}",
-    "format-alt-click": "click-right",
-    "interval": 1800,
+    "exec": "~/.config/waybar/get_weather.sh Belfast",
     "return-type": "json",
-    "exec": "~/.config/waybar/weather.sh",
-    "exec-if": "ping wttr.in -c1",
-    "on-click": "~/.config/waybar/weather.sh"
-    // "on-click": "kitty -e zsh -i -c 'sleep 0.01; exec curl wttr.in'"
-    // "on-click": "gnome-weather"
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "on-click": "~/.config/waybar/get_weather.sh"
   },
   "tray": {
     "icon-size": 18,
@@ -162,13 +168,15 @@
   },
   "clock": {
     // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%H:%M} ",
+    "tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>", // :%H %M %S\n
     "format-alt": "{:%Y/%m/%d}",
     "calendar": {
       "format": {
         "today": "<span color='#ff6699'><b>{}</b></span>"
       }
-    }
+    },
+    "interval": 60 //1
   },
   "cpu": {
     //"format": "󰭄 {usage}%  {icon}",
@@ -186,7 +194,8 @@
   "memory": {
     //"format": " {}% {icon}",
     "format": "{icon}",
-    "tooltip": "{usage}%",
+    "tooltip": true,
+    "tooltip-format": "{used} / {total}GiB ({percentage}%)\n{swapUsed} / {swapTotal}GiB ({swapPercentage}%)",
     "format-icons": [
       "󰏝",
       "󰪞",
@@ -201,8 +210,9 @@
   },
   "disk": {
     "path": "/",
-    "interval": 30,
+    "interval": 60,
     "format": "{free} 󰒋",
+    "on-click": "baobab && hyprctl activewindow | hyprctl setprop address:$(grep -oP '(?<=Window )[0-9a-zA-Z]*') floating 1",
   },
   "temperature": {
     // "thermal-zone": 2,
@@ -234,6 +244,8 @@
     ]
   },
   "battery": {
+    // "bat": "BAT0",
+    "interval": 60,
     "states": {
       // "good": 95,
       "warning": 30,
@@ -247,11 +259,11 @@
     "format-full": "󰁹",
     "format-icons": {
       "discharging": [
-        //      "",
-        //      "",
-        //      "",
-        //      "",
-        //      ""
+        // "",
+        // "",
+        // "",
+        // "",
+        // ""
         "󰁺",
         "󰁻",
         "󰁼",
@@ -268,8 +280,9 @@
         "󰢜",
         "󰢝",
         "󰢞"
-      ]
-    },
+      ],
+      "not-charging": ""
+    }
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -302,6 +315,36 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "dynamic-order": [
+      "artist",
+      "title",
+      "album",
+      "position",
+      "length",
+    ],
+    "player-icons": {
+      "default": "", // "", // "󰏤", // "" 
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "" // "" // "󰐊" //""
+    },
+    "title-len": 30,
+    "dynamic-len": 30,
+    "dynamic-importance-order": [
+      "title",
+      "artist",
+      "album",
+      "position",
+      "length",
+    ],
+    "ellipsis": "...",
+    "dynamic-separator": " - "
+    // "ignored-players": ["firefox"]
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -340,14 +383,14 @@
   //    }
   // }
   "cava": {
-    //        "cava_config": "$HOME/.config/cava/config",
-    "framerate": 60,
+    // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 30,
     "autosens": 1,
     "sensitivity": 100,
     "bars": 14,
     "lower_cutoff_freq": 50,
     "higher_cutoff_freq": 10000,
-    "method": "pulse",
+    "method": "pipewire",
     "source": "auto",
     "stereo": true,
     "reverse": false,
@@ -369,5 +412,5 @@
     "actions": {
       "on-click-right": "mode"
     }
-  },
+  }
 }
