@@ -20,6 +20,7 @@
     "pulseaudio",
     "bluetooth",
     "network",
+    "custom/external-ip",
     "cpu",
     "memory",
     "disk",
@@ -160,7 +161,7 @@
     "format": "{}",
     "tooltip": true,
     "interval": 3600,
-    "on-click": "~/.config/waybar/get_weather.sh"
+    "on-click": "~/.config/waybar/get_weather.sh Belfast"
   },
   "tray": {
     "icon-size": 18,
@@ -304,6 +305,14 @@
     ],
     "on-click": "kitty zsh -c 'sleep 0.01; exec nmtui'"
   },
+  "custom/external-ip": {
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "exec": "echo \"{\"text\":\"test\", \"tooltip\":\"pleb\"}\"", // $(curl http://ipecho.net/plain)
+    // "on-click": "curl http://ipecho.net/plain",
+    "interval": 60
+  },
   "bluetooth": {
     "format": "",
     // "format-connected": "{device_alias} ",
@@ -333,8 +342,8 @@
     "status-icons": {
       "paused": "" // "" // "󰐊" //""
     },
-    "title-len": 30,
-    "dynamic-len": 30,
+    "title-len": 25,
+    "dynamic-len": 25,
     "dynamic-importance-order": [
       "title",
       "artist",

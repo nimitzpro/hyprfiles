@@ -124,7 +124,7 @@ alias btd="bluetoothctl disconnect"
 
 alias commands="echo 'gc = comment/uncomment\n%s//ge = Find and Replace\n'"
 
-alias hypr="nvim ~/.config/hyprland"
+alias hypr="nvim ~/.config/hypr"
 alias bar="nvim ~/.config/waybar"
 alias rebar="killall waybar && nohup waybar &"
 
@@ -272,3 +272,4 @@ eval "$(zoxide init zsh)"
 source "$HOME/git-projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOME/git-projects/zsh-history-substring-search/zsh-history-substring-search.zsh"
 source "$HOME/git-projects/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/git-projects/zsh-vi-mode/zsh-vi-mode.zsh"

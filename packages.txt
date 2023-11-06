@@ -144,6 +144,7 @@ desktop-file-utils 0.27-1
 device-mapper 2.03.22-2
 diffutils 3.10-1
 discord_arch_electron 0.0.33-1
+djvulibre 3.5.28-5
 dnsmasq 2.89-1
 dnssec-anchors 20190629-3
 docker 1:24.0.7-1
@@ -304,6 +305,7 @@ gumbo-parser 0.12.1-1
 gupnp 1:1.6.6-1
 gupnp-igd 1.6.0-1
 gvfs 1.52.1-1
+gvfs-gphoto2 1.52.1-1
 gzip 1.13-2
 harfbuzz 8.2.2-1
 harfbuzz-icu 8.2.2-1
@@ -910,6 +912,7 @@ mpg123 1.32.3-1
 mpv 1:0.36.0-1
 msgpack-c 5.0.0-1
 mtdev 1.1.6-2
+mtpfs 1.1-4
 mujs 1.3.3-1
 musescore 4.1.1-2
 mutter 45.1-1
@@ -962,6 +965,7 @@ openobex 1.7.2-4
 openpmix 4.2.6-1
 openssh 9.5p1-1
 openssl 3.1.4-1
+openvpn 2.6.6-1
 opus 1.4-1
 orc 0.4.34-1
 osinfo-db 20231027-1
@@ -1116,6 +1120,7 @@ pipewire-audio 1:0.3.84-1
 pipewire-pulse 1:0.3.84-1
 pistol-git 0.4.2.r5.g717227b-1
 pixman 0.42.2-1
+pkcs11-helper 1.29.0-2
 pkgconf 1.8.1-1
 plasma-browser-integration 5.27.9-1
 plasma-framework5 5.111.0-1
@@ -1254,6 +1259,8 @@ python-pymupdf 1.23.5-1
 python-pynacl 1.4.0-7
 python-pynvim 0.4.3-3
 python-pyparsing 3.1.1-1
+python-pyqt5 5.15.10-1
+python-pyqt5-sip 12.13.0-1
 python-pyqt6 6.6.0-1
 python-pyqt6-sip 13.6.0-1
 python-pyqt6-webengine 6.6.0-1
@@ -1308,6 +1315,7 @@ python-zipp 3.17.0-1
 qca-qt5 2.3.7-2
 qflipper-git 1.3.2.r0.g7b0839e-1
 qhull 2020.2-4
+qopenvpn 2.0.0-7
 qqc2-desktop-style5 5.111.0-1
 qrencode 4.1.1-2
 qt5-3d 5.15.11-1
@@ -1484,6 +1492,8 @@ texlive-publishers 2023.66594-19
 texlive-xetex 2023.66594-19
 thin-provisioning-tools 1.0.6-1
 threadweaver5 5.111.0-1
+threshy 0.2-0
+threshy-gui 0.2-0
 thunar 4.18.8-1
 thunar-volman 4.18.0-1
 timidity++ 2.15.0-10
@@ -1571,6 +1581,7 @@ windscribe 2.6.14-1
 wine-staging 8.19-1
 wineland 8.2-1
 winetricks 20230212-1
+wireguard-tools 1.0.20210914-1
 wireplumber 0.4.15-1
 wireshark-cli 4.0.10-1
 wireshark-qt 4.0.10-1
@@ -1631,6 +1642,8 @@ youtube-dl 2021.12.17-2
 yup 1.1.8-3
 zapzap 4.5.2-1
 zathura 0.5.2-2
+zathura-cb 0.1.10-2
+zathura-djvu 0.2.9-2
 zathura-pdf-mupdf 0.4.1-7
 zbar 0.23.90-3
 zenity 3.44.2-1
