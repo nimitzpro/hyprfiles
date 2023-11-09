@@ -89,7 +89,27 @@
     "sort-by-number": true
   },
   "hyprland/window": {
-    "format": {}
+    //  "format": {},
+    //    "format": "<sub>{icon}</sub>\n{windows}",
+    //    "format-window-separator": "\n",
+    //    "window-rewrite-default": "",
+    //    "window-rewrite": {
+    //      "firefox": "",
+    //      "foot": "",
+    //      "code": "󰨞"
+    //    }
+    "format": "{initialClass};;{title}",
+    "rewrite": {
+      "firefox;;(.*) — Mozilla Firefox": "  $1",
+      "kitty;;(.*)": "  $1",
+      "org.pwmt.zathura;;(.*)": "  $1",
+      "WebCord;;(.*)": "󰙯  $1",
+      "discord;;(.*)": "󰙯  $1",
+      "code-oss;;(.*)": "󰨞  $1",
+      "org.speedcrunch.speedcrunch;;(.*)": "  $1",
+      "(?!org.speedcrunch.speedcrunch)(?!firefox)(?!kitty)(?!discord)(?!WebCord)(?!org.pwmt.zathura)(?!code-oss).*;;(.*)": "$1",
+    },
+    "separate-outputs": true // true
   },
   // "wlr/mode": {
   //   "format": "<span style=\"italic\">{}</span>"
