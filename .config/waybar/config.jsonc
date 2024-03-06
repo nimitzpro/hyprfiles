@@ -84,6 +84,7 @@
       "18": "VIII",
       "19": "IX",
       "20": "X",
+      // "11": "🀙🀐",
       // "urgent": "",
     },
     "sort-by-number": true
@@ -106,9 +107,10 @@
       "org.pwmt.zathura;;(.*)": "  $1",
       "WebCord;;(.*)": "󰙯  $1",
       "discord;;(.*)": "󰙯  $1",
+      "de.shorsh.discord-screenaudio;;(.*)": "󰙯  $1",
       "code-oss;;(.*)": "󰨞  $1",
       "org.speedcrunch.speedcrunch;;(.*)": "  $1",
-      "(?!org.speedcrunch.speedcrunch)(?!firefox)(?!kitty)(?!discord)(?!WebCord)(?!org.pwmt.zathura)(?!code-oss).*;;(.*)": "$1",
+      "(?!de.shorsh.discord-screenaudio)(?!org.speedcrunch.speedcrunch)(?!firefox)(?!kitty)(?!discord)(?!WebCord)(?!org.pwmt.zathura)(?!code-oss).*;;(.*)": "$1",
     },
     "separate-outputs": true // true
   },
@@ -177,12 +179,12 @@
   //   // "on-click": "gnome-weather"
   // },
   "custom/weather": {
-    "exec": "~/.config/waybar/get_weather.sh Belfast",
+    "exec": "~/.config/waybar/get_weather.sh",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
     "interval": 3600,
-    "on-click": "~/.config/waybar/get_weather.sh Belfast"
+    "on-click": "~/.config/waybar/get_weather.sh"
   },
   "tray": {
     "icon-size": 18,
