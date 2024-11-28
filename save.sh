@@ -21,14 +21,17 @@ rsync -av ~/.config/fontconfig .config
 # mkdir -p ~/.config/feh
 rsync -av ~/.config/feh .config
 
+# replaced by hypridle
 # mkdir -p ~/.config/swayidle
-rsync -av ~/.config/swayidle .config
+# rsync -av ~/.config/swayidle .config
 
 rsync -av ~/.config/darkman .config
 
 rsync -av ~/.config/lf .config
 
 rsync -av ~/.config/nvim .config
+
+rsync -av ~/.local/bin .bin
 
 # rm -rf ./.config
 # cp -R ~/.config ./

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+list=''
+if [[ $1 == "open" ]]; then
+    if [[ "$2" ]]; then
+        list=$2
+    else
+        list="$(find $HOME/.config/hypr/saved/ -mindepth 1 -printf '%P\n' 2>/dev/null | fzf)"
+    fi
+    cat $HOME/.config/hypr/saved/$list | while read line; do
+        echo "got to here: $line"
+        if [ -f "$HOME/$line" ]; then
+            echo "got inside: $line"
+            hyprctl dispatch exec '[workspace 10]' "nohup xdg-open '$HOME/$line'"
+        else
+            echo "cring: $line"
+        fi
+    done
+else
+    list="$(find ~/ -mindepth 1 -printf '%P\n' 2>/dev/null | fzf -m)"
+    echo $list
+    echo "$list" | while read line; do
+        echo "got to here: $line"
+        if [ -f "$HOME/$line" ]; then
+            echo "got inside: $line"
+            # hyprctl exec, "[workspace $ws silent; togglegroup]" nohup xdg-open "$HOME/$choice" >/dev/null 2>&1 &
+            hyprctl dispatch exec '[workspace 10]' "nohup xdg-open '$HOME/$line'"
+        else
+            echo "cring: $line"
+            # hyprctl dispatch exec "[workspace 10; togglegroup]" 'kitty --hold sh -c "cd $HOME/$line"'
+        fi
+    done
+    if [[ $1 == "save" ]]; then
+        mkdir -p $HOME/.config/hypr/saved
+        echo "$list" >$HOME/.config/hypr/saved/$2
+    fi
+    # $(hyprctl dispatch togglegroup class:^(org.pwmt.zathura)$)
+fi

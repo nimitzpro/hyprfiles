@@ -1,14 +1,6 @@
 #!/bin/sh
 
-# autoload -Uz compinit promptinit
-# compinit
-# promptinit
-
-# bindkey  "^[[H"   beginning-of-line
-# bindkey  "^[[F"   end-of-line
-# bindkey  "^[[3~"  delete-char
-
-export EDITOR="vim"
+export EDITOR="nvim"
 export READER="zathura"
 export VISUAL="nvim"
 export TERMINAL="kitty"
@@ -17,77 +9,38 @@ export VIDEO="mpv"
 export IMAGE="feh"
 export COLORTERM="truecolor"
 export WM="hyprland"
-export PAGER="less"
+# export PAGER="nvim"
+# export DISPLAY=":1.0"
 
-typeset -g -A key
-key[Home]="${terminfo[khome]}"
-key[End]="${terminfo[kend]}"
-key[Insert]="${terminfo[kich1]}"
-key[Backspace]="${terminfo[kbs]}"
-key[Delete]="${terminfo[kdch1]}"
-key[Up]="${terminfo[kcuu1]}"
-key[Down]="${terminfo[kcud1]}"
-key[Left]="${terminfo[kcub1]}"
-key[Right]="${terminfo[kcuf1]}"
-key[PageUp]="${terminfo[kpp]}"
-key[PageDown]="${terminfo[knp]}"
-key[Shift-Tab]="${terminfo[kcbt]}"
-
-# setup key accordingly
-[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
-[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
-[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
-[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
-[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
-[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
-[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
-[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
-[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
-[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
-[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
-[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
-
-
-key[Control-Left]="${terminfo[kLFT5]}"
-key[Control-Right]="${terminfo[kRIT5]}"
-
-[[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
-[[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
-
-bindkey "^H" backward-delete-word
-bindkey "^[[3;5~" delete-word
-
-# Finally, make sure the terminal is in application mode, when zle is
-# active. Only then are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget compinit
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
-fi
-
+alias neofetch=fastfetch
 PS1=exec neofetch
 PROMPT="%F{165}%n%f%F{165}@%f%F{165}%m%f:%F{51}%d%f $ "
 
-alias \#="./.local/bin/wrappedhl"
-
+# zshell config
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+alias reload="source ~/.zshrc"
 
+# Programming, path vars, experimental
 alias code-python="code --enable-proposed-api ms-python.python"
-
 alias discord="discord -enable-features=UseOzonePlatform --ozone-platform=wayland"
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin:$HOME/.local/bin
+alias gs="git status"
+alias ga="git add -A"
+alias gc="git commit -m"
+alias gp="git push"
 
+# Volume and backlight
 alias volup="wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
 alias voldown="wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
 alias lightup="sudo light -A 5"
 alias lightdown="sudo light -U 5"
 
 # alias lf="lfrun"
-# Aliases
+# Command Line Aliases
 alias cp='cp -iv --reflink=auto'
 alias rcp='rsync -v --progress'
 alias rmv='rsync -v --progress --remove-source-files'
@@ -105,31 +58,33 @@ alias lla='exa --classify -la'
 # alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 # alias ll='ls --color=auto --human-readable --group-directories-first --classify -l'
 # alias lla='ls --color=auto --human-readable --group-directories-first --classify -la'
-
-alias pacsize="pacman -Qi | grep -E '^(Name|Installed)' | cut -f2 -d':' | paste - - | column -t | sort -nrk 2 | grep MiB | less"
+alias icon="wrestool -x -t 14"
 
 alias sup="rclone --verbose --interactive sync ~/Drive/ astroalex005:"
 alias sdown="rclone --verbose --interactive sync astroalex005: ~/Drive/"
 
-# Bluetooth device MACros
+# External device MACros
 alias btr5="wl-copy '40:ED:98:1B:7A:9E'"
 alias trusty="wl-copy '47:00:00:00:07:21'"
 BTR5='40:ED:98:1B:7A:9E'
 TRUSTY='47:00:00:00:07:21'
 
-# z alias
-# alias z="cd"
 alias btc="bluetoothctl connect"
 alias btd="bluetoothctl disconnect"
 
-alias commands="echo 'gc = comment/uncomment\n%s//ge = Find and Replace\n'"
+# Phone sync
+phone="/storage/emulated/0"
+alias pull="adbsync pull"
+alias push="adbsync push"
 
+# System aliases
+alias \#="./.local/bin/wrappedhl" # Start Hyprland
+alias pacsize="pacman -Qi | grep -E '^(Name|Installed)' | cut -f2 -d':' | paste - - | column -t | sort -nrk 2 | grep MiB | less"
 alias hypr="nvim ~/.config/hypr"
 alias bar="nvim ~/.config/waybar"
 alias rebar="killall waybar && nohup waybar &"
 
-
-export PATH=$PATH:$GOPATH/bin
+# alias music='mpc -q play; ~/.config/ncmpcpp/art.sh; sleep 1; ~/.config/ncmpcpp/kitty.sh &; ncmpcpp'
 
 gpge() {
     if [ "$1" != "" ] # or better, if [ -n "$1" ]
@@ -151,7 +106,7 @@ gpgd() {
     fi
 }
 
-# USE LF TO SWITCH DIRECTORIES AND BIND IT TO CTRL-O
+# File explorers
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -163,48 +118,22 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-# zoxide
-# =============================================================================
-#
-# Utility functions for zoxide.
-#
-
-# pwd based on the value of _ZO_RESOLVE_SYMLINKS.
 function __zoxide_pwd() {
     \builtin pwd -L
 }
-
-# cd + custom logic based on the value of _ZO_ECHO.
 function __zoxide_cd() {
     # shellcheck disable=SC2164
     \builtin cd -- "$@"
 }
-
-# =============================================================================
-#
-# Hook configuration for zoxide.
-#
-
-# Hook to add new entries to the database.
 function __zoxide_hook() {
     # shellcheck disable=SC2312
     \command zoxide add -- "$(__zoxide_pwd)"
 }
-
-# Initialize hook.
 # shellcheck disable=SC2154
 if [[ ${precmd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]] && [[ ${chpwd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]]; then
     chpwd_functions+=(__zoxide_hook)
 fi
-
-# =============================================================================
-#
-# When using zoxide with --no-cmd, alias these internal functions as desired.
-#
-
 __zoxide_z_prefix='z#'
-
-# Jump to a directory using only keywords.
 function __zoxide_z() {
     # shellcheck disable=SC2199
     if [[ "$#" -eq 0 ]]; then
@@ -222,14 +151,10 @@ function __zoxide_z() {
             __zoxide_cd "${result}"
     fi
 }
-
-# Jump to a directory using interactive search.
 function __zoxide_zi() {
     \builtin local result
     result="$(\command zoxide query --interactive -- "$@")" && __zoxide_cd "${result}"
 }
-
-# Completions.
 if [[ -o zle ]]; then
     function __zoxide_z_complete() {
         # Only show completions when the cursor is at the end of the line.
@@ -254,22 +179,61 @@ if [[ -o zle ]]; then
     \builtin bindkey '\e[0n' 'reset-prompt'
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete __zoxide_z
 fi
-
-# =============================================================================
-#
-# Commands for zoxide. Disable these using --no-cmd.
-#
-
 \builtin alias z=__zoxide_z
 \builtin alias zi=__zoxide_zi
+eval "$(zoxide init zsh)"q
 
-# =============================================================================
+# _fzf_complete_foo() {
+#   _fzf_complete --multi --reverse --header-lines=3 -- "$@" < <(
+#     ls -al
+#   )
+# }
 #
-# To initialize zoxide, add this to your configuration (usually ~/.zshrc):
-#
-eval "$(zoxide init zsh)"
+# _fzf_complete_foo_post() {
+#   awk '{print $NF}'
+# }
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# Scripts (small)
+se() {
+	choice="$(find ~/ -mindepth 1 -printf '%P\n' 2>/dev/null | fzf)"
+	if [ -f "$HOME/$choice" ]; then
+      $EDITOR "$HOME/$choice"
+  else
+	  cd "$HOME/$choice"
+  fi
+}
+
+ser() {
+	choice="$(find / -mindepth 1 -printf '%P\n' 2>/dev/null | fzf)"
+	if [ -f "/$choice" ]; then
+      sudo $EDITOR "/$choice"
+  else
+    cd "/$choice"
+  fi
+}
+so() {
+	choice="$(find ~/ -mindepth 1 -printf '%P\n' 2>/dev/null | fzf)"
+	if [ -f "$HOME/$choice" ]; then
+      nohup xdg-open "$HOME/$choice" >/dev/null 2>&1 &
+  else
+	  cd "$HOME/$choice"
+  fi
+}
 
 source "$HOME/git-projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOME/git-projects/zsh-history-substring-search/zsh-history-substring-search.zsh"
 source "$HOME/git-projects/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOME/git-projects/zsh-vi-mode/zsh-vi-mode.zsh"
+# set editing-mode vi
+# set show-mode-in-prompt on
+# set vi-ins-mode-string \1\e[34;1m\2>\1\e[0m\2
+# set vi-cmd-mode-string \1\e[33;1m\2>\1\e[0m\2

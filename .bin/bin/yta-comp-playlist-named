@@ -1,0 +1,10 @@
+#!/bin/sh
+
+yt-dlp \
+  -x --add-metadata \
+  --embed-thumbnail --audio-format m4a --audio-quality 0 \
+  --ppa "ThumbnailsConvertor+FFmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\"" \
+  -o "/home/nimitz/Audio/$1/%(playlist)s/%(title)s.200B.%(ext)s" \
+  -o "chapter:/home/nimitz/Music/$1/%(playlist)s/%(title)s/%(artist)s - %(section_title)s.%(ext)s" \
+  --split-chapters \
+  "$2"

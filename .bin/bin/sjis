@@ -1,0 +1,14 @@
+#!/bin/sh
+
+export LOCPATH=$HOME/.wine/locale-ja
+# mkdir -p $LOCPATH
+echo $(pwd)
+
+# localedef -f EUC-JP -i ja_JP $LOCPATH/ja_JP.EUC-JP
+localedef -c -f SHIFT_JIS -i ja_JP $LOCPATH/ja_JP.SJIS
+dir="$(dirname $1)"
+cd "$dir"
+gamescope -w 2880 -h 2160 -F fsr -f -- env LOCPATH=$HOME/.wine/locale-ja LANG=ja_JP.SJIS wine $(basename "$1")
+# gamescope -w 2160 -h 2880 -- env LOCPATH=$HOME/.wine/locale-ja/ LANG=ja_JP.SJIS wine $1
+
+# env LOCPATH=$HOME/.wine/locale-ja/ LANG=ja_JP.EUC-JP wine

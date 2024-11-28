@@ -1,0 +1,11 @@
+#!/bin/bash
+rm -f sha512errors
+sha512sum -c sha512checksums 2>sha512errors 1>/dev/null
+if [ -s sha512errors ]; then
+  echo The following errors where found while checking:
+  more sha512errors
+  rm -f sha512errors
+else
+  echo All files are ok.
+  rm -f sha512errors
+fi

@@ -15,19 +15,19 @@
   "modules-right": [
     "mpris",
     "idle_inhibitor",
-    "custom/weather", // unstable behaviour,crashes bar
+    // "custom/weather", // unstable behaviour,crashes bar
     // "cava", // waybar-cava fails to compile, using regular waybar for now
     "pulseaudio",
     "bluetooth",
     "network",
     "custom/external-ip",
+    "temperature",
     "cpu",
     "memory",
     "disk",
-    "temperature",
     "backlight",
     "wlr/language",
-    "battery",
+    // "battery",
     "clock",
     "tray"
   ],
@@ -107,10 +107,11 @@
       "org.pwmt.zathura;;(.*)": "  $1",
       "WebCord;;(.*)": "󰙯  $1",
       "discord;;(.*)": "󰙯  $1",
+      "vesktop;;(.*)": "󰙯  $1",
       "de.shorsh.discord-screenaudio;;(.*)": "󰙯  $1",
       "code-oss;;(.*)": "󰨞  $1",
       "org.speedcrunch.speedcrunch;;(.*)": "  $1",
-      "(?!de.shorsh.discord-screenaudio)(?!org.speedcrunch.speedcrunch)(?!firefox)(?!kitty)(?!discord)(?!WebCord)(?!org.pwmt.zathura)(?!code-oss).*;;(.*)": "$1",
+      "(?!de.shorsh.discord-screenaudio)(?!org.speedcrunch.speedcrunch)(?!firefox)(?!kitty)(?!discord)(?!WebCord)(?!org.pwmt.zathura)(?!code-oss)(?!vesktop).*;;(.*)": "$1",
     },
     "separate-outputs": true // true
   },
@@ -192,7 +193,7 @@
   },
   "clock": {
     // "timezone": "America/New_York",
-    "format": "{:%H:%M} ",
+    "format": " {:%H:%M}",
     "tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>", // :%H %M %S\n
     "format-alt": "{:%Y/%m/%d}",
     "calendar": {
@@ -235,7 +236,7 @@
   "disk": {
     "path": "/",
     "interval": 60,
-    "format": "{free} 󰒋",
+    "format": "󰒋 {free}",
     "on-click": "baobab && hyprctl activewindow | hyprctl setprop address:$(grep -oP '(?<=Window )[0-9a-zA-Z]*') floating 1",
   },
   "temperature": {
@@ -243,7 +244,7 @@
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
     // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
+    "format": "{icon}",
     "format-icons": [
       "",
       "",
@@ -312,13 +313,14 @@
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     // "format-wifi": "{essid} ({signalStrength}%) {icon}", // old format-wifi
     "format-wifi": "{icon}",
-    "format-ethernet": "{ipaddr}/{cidr} ",
+    // "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-ethernet": "",
     // "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
+    "format-linked": "",
     //"format-disconnected": "Disconnected ⚠",
     "format-disabled": "󰤯",
     "format-disconnected": "⚠",
-    "tooltip-format": "{essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr} ", // formerly "format-alt"
+    "tooltip-format": "{essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr} 🖧", // formerly "format-alt"
     "format-icons": [
       "󰤯",
       "󰤟",
@@ -380,10 +382,11 @@
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon}  {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format": "{icon} {volume}%",
+    "tooltip-format": "{desc}\n{volume}% {icon}  {format_source}",
+    "format-bluetooth": "{icon} {volume}%",
     "format-bluetooth-muted": "󰖁{icon} {format_source}",
-    "format-muted": "󰖁 {format_source}",
+    "format-muted": "󰖁 {volume}%",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {

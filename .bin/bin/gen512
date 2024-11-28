@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find . -type f ! -name '*.md5' -print0 | xargs -0 md5sum | sort -k 2 >md5sums_$(date -I).md5

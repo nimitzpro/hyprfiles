@@ -1,9 +1,9 @@
 #!/bin/sh
 
-process=$(ps aux | grep swayidle | grep -v grep)
+idling=$(find .config -iname hypridle.conf)
 
-if [[ $process = "" ]]; then
-	exec swayidle
+if [[ $idling = "" ]]; then
+  mv $HOME/.config/hypr/hypridle_disabled.conf $HOME/.config/hypr/hypridle.conf
 else
-	killall swayidle
+  mv $HOME/.config/hypr/hypridle.conf $HOME/.config/hypr/hypridle_disabled.conf
 fi

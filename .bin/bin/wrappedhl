@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd ~
+
+export HYPRLAND_LOD_WLR=1
+
+EXPORT XCURSOR_THEME=Bibata-Modern-Classic
+
+# export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+
+exec Hyprland

@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -f sha512checksums
+find -type f ! -iname "sha512checksums" -exec sha512sum "{}" + >sha512checksums

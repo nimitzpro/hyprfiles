@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # get_weather.sh
-LOCATION=$(cat loc.txt)
+LOCATION=$(cat $HOME/.config/loc.txt)
 for i in {1..5}; do
-	text=$(curl -s "https://wttr.in/$LOCATION?format=1")
-	if [[ $? == 0 ]]; then
-		text=$(echo "$text" | sed -E "s/\s+/ /g")
-		tooltip=$(curl -s "https://wttr.in/$1?format=4")
-		if [[ $? == 0 ]]; then
-			tooltip=$(echo "$tooltip" | sed -E "s/\s+/ | /g") # or use \xd for newline
-			echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\"}"
-			exit
-		fi
-	fi
-	sleep 2
+  text=$(curl -s "https://wttr.in/$LOCATION?format=1")
+  if [[ $? == 0 ]]; then
+    text=$(echo "$text" | sed -E "s/\s+/ /g")
+    tooltip=$(curl -s "https://wttr.in/$LOCATION?format=4")
+    if [[ $? == 0 ]]; then
+      tooltip=$(echo "$tooltip" | sed -E "s/\s+/ | /g") # or use \xd for newline
+      echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\"}"
+      exit
+    fi
+  fi
+  sleep 2
 done
 echo "{\"text\":\"error\", \"tooltip\":\"error\"}"
