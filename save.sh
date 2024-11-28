@@ -31,7 +31,7 @@ rsync -av ~/.config/lf .config
 
 rsync -av ~/.config/nvim .config
 
-rsync -av ~/.local/bin .bin
+rsync -av ~/.local/bin .local
 
 # rm -rf ./.config
 # cp -R ~/.config ./
