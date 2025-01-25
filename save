@@ -1,0 +1,46 @@
+#!/bin/sh
+
+if [-z $1]; then
+  DEST="."
+else
+  DEST=$1
+  mkdir -p $DEST
+fi
+
+mkdir -p $DEST/.config
+rsync -av ~/.config/hypr $DEST/.config
+rsync -av ~/.config/waybar $DEST/.config
+rsync -av ~/.config/mako $DEST/.config
+rsync -av ~/.config/kitty $DEST/.config
+
+cp -rfv ~/.zshrc $DEST/.
+# cp -rfv ~/drive_secret.aes $DEST/.
+cp -rfv ~/.gitconfig $DEST/.
+cp -rfv ~/.vimrc $DEST/.
+cp -rfv ~/.latexmkrc $DEST/.
+
+# mkdir -p ~/.local/share
+rsync -av ~/.local/share/fonts $DEST/.local/share
+
+# mkdir -p ~/.config/fontconfig
+rsync -av ~/.config/fontconfig $DEST/.config
+
+# mkdir -p ~/.config/feh
+rsync -av ~/.config/feh $DEST/.config
+
+# replaced by hypridle
+# mkdir -p ~/.config/swayidle
+# rsync -av ~/.config/swayidle $DEST/.config
+
+rsync -av ~/.config/darkman $DEST/.config
+
+rsync -av ~/.config/lf $DEST/.config
+
+rsync -av ~/.config/nvim $DEST/.config
+
+rsync -av ~/.local/bin $DEST/.local
+
+# rm -rf ./.config
+# cp -R ~/.config ./
+
+pacman -Q >$DEST/packages.txt
