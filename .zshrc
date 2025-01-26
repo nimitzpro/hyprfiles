@@ -27,11 +27,12 @@ alias reload="source ~/.zshrc"
 alias code-python="code --enable-proposed-api ms-python.python"
 alias discord="discord -enable-features=UseOzonePlatform --ozone-platform=wayland"
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin:$HOME/.local/bin
+export PATH=$HOME/.cargo/bin:$PATH:$GOPATH/bin:$HOME/.local/bin
 alias gs="git status"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias gp="git push"
+alias v="nvim"
 
 # Volume and backlight
 alias volup="wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -73,7 +74,7 @@ alias btc="bluetoothctl connect"
 alias btd="bluetoothctl disconnect"
 
 # Phone sync
-phone="/storage/emulated/0"
+PHONE="/storage/emulated/0"
 alias pull="adbsync pull"
 alias push="adbsync push"
 
@@ -83,6 +84,11 @@ alias pacsize="pacman -Qi | grep -E '^(Name|Installed)' | cut -f2 -d':' | paste 
 alias hypr="nvim ~/.config/hypr"
 alias bar="nvim ~/.config/waybar"
 alias rebar="killall waybar && nohup waybar &"
+
+# bindkey -s '^i' "lfcd\n"
+# bindkey -s '^o' "sdir\n"
+# bindkey -s '^v' "se\n"
+bindkey -s '^o' "lfcd\n"
 
 # alias music='mpc -q play; ~/.config/ncmpcpp/art.sh; sleep 1; ~/.config/ncmpcpp/kitty.sh &; ncmpcpp'
 
@@ -116,7 +122,6 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
 
 function __zoxide_pwd() {
     \builtin pwd -L
@@ -205,6 +210,15 @@ function y() {
 # Scripts (small)
 se() {
 	choice="$(find ~/ -mindepth 1 -printf '%P\n' 2>/dev/null | fzf)"
+	if [ -f "$HOME/$choice" ]; then
+      $EDITOR "$HOME/$choice"
+  else
+	  cd "$HOME/$choice"
+  fi
+}
+
+sdir() {
+	choice="$(find ~/ -type d -mindepth 1 -printf '%P\n' 2>/dev/null | fzf)"
 	if [ -f "$HOME/$choice" ]; then
       $EDITOR "$HOME/$choice"
   else

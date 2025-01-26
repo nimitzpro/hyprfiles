@@ -1,0 +1,24 @@
+#!/bin/bash
+
+wget https://apod.nasa.gov/apod/astropix.html
+
+imgURL=$(grep -i '<img' astropix.html | grep -oP '"\K[^"\047]+(?=["\047])')
+
+imgURL="https://apod.nasa.gov/apod/${imgURL}"
+
+imgName=$(grep -i '<img' astropix.html | grep -oP '"\K[^"\047]+(?=["\047])' | cut -d/ -f3)
+
+# imgName="${imgName}.jpg"
+
+mkdir -p "$HOME/Pictures/astropix"
+wget -O "$HOME/Pictures/astropix/${imgName}" $imgURL
+
+# feh --bg-fill /home/nimitz/Pictures/astropix/$imgName
+hyprctl hyprpaper preload "$HOME/Pictures/astropix/${imgName}"
+hyprctl hyprpaper wallpaper "DP-1, $HOME/Pictures/astropix/${imgName}"
+hyprctl hyprpaper wallpaper "DP-2, $HOME/Pictures/astropix/${imgName}"
+hyprctl hyprpaper wallpaper "DP-3, $HOME/Pictures/astropix/${imgName}"
+
+rm astropix.html
+
+exit 0

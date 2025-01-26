@@ -1,0 +1,105 @@
+[LOG] Welcome to hyprpaper!
+built from commit  ()
+[LOG] Cleaned old hyprpaper preloads (5), removing 199.1MB
+Error in config: 
+Config error in file /home/nimitz/.config/hypr/hyprpaper.conf at line 2: no such file: /home/nimitz/Pictures/bocchi.webp
+[LOG] Preloaded target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg in 14.42ms -> Pixel size: [1920, 1080]
+[LOG] Buffer created for target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg, Shared Memory usage: 132.7MB
+[LOG] Buffer created for target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg, Shared Memory usage: 9.2MB
+[LOG] Total SM usage for all buffers: 141.9MB
+[LOG] hyprpaper socket started at /run/user/1000/hypr/0bd541f2fd902dbfa04c3ea2ccf679395e316887_1735146806_686556607/.hyprpaper.sock (fd: 5)
+[LOG] configure for DP-1
+[LOG] handlePreferredScale: 1.00 for 60acbf4405e0
+[LOG] configure for DP-1
+[LOG] configure for DP-2
+[LOG] handlePreferredScale: 1.00 for 60acbf4412b0
+[LOG] configure for DP-2
+[LOG] Buffer created for target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg, Shared Memory usage: 14.7MB
+[LOG] Total SM usage for all buffers: 156.7MB
+[LOG] Image data for DP-1: /home/nimitz/Pictures/backgrounds/nicepic1080.jpg at [-0.00, 0.00], scale: 1.33 (original image size: [1920, 1080])
+[LOG] Submitting viewport dest size 2560x1440 for 60acbf4405e0
+[LOG] Image data for DP-2: /home/nimitz/Pictures/backgrounds/nicepic1080.jpg at [-96.00, 0.00], scale: 1.11 (original image size: [1920, 1080])
+[LOG] Submitting viewport dest size 1920x1200 for 60acbf4412b0
+[LOG] configure for DP-3
+[LOG] handlePreferredScale: 1.00 for 60acbf441ad0
+[LOG] configure for DP-3
+[LOG] Buffer created for target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg, Shared Memory usage: 9.2MB
+[LOG] Total SM usage for all buffers: 165.9MB
+[LOG] Image data for DP-3: /home/nimitz/Pictures/backgrounds/nicepic1080.jpg at [-622.50, 0.00], scale: 1.78 (original image size: [1920, 1080])
+[LOG] Submitting viewport dest size 1200x1920 for 60acbf441ad0
+[LOG] handlePreferredScale: 1.50 for 60acbf4405e0
+[LOG] Buffer created for target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg, Shared Memory usage: 33.2MB
+[LOG] Total SM usage for all buffers: 199.1MB
+[LOG] Image data for DP-1: /home/nimitz/Pictures/backgrounds/nicepic1080.jpg at [-0.00, 0.00], scale: 2.00 (original image size: [1920, 1080])
+[LOG] Submitting viewport dest size 2560x1440 for 60acbf4405e0
+[LOG] handlePreferredScale: 1.00 for 60acbf4412b0
+[LOG] handlePreferredScale: 1.00 for 60acbf441ad0
+[LOG] handlePreferredScale: 1.50 for 60acbf4405e0
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: preload /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg
+[LOG] Preloaded target /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg in 2.28ms -> Pixel size: [960, 640]
+[LOG] Buffer created for target /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg, Shared Memory usage: 33.2MB
+[LOG] Buffer created for target /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg, Shared Memory usage: 9.2MB
+[LOG] Buffer created for target /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg, Shared Memory usage: 9.2MB
+[LOG] Total SM usage for all buffers: 250.7MB
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: wallpaper DP-1, /home/nimitz/Pictures/astropix/IceHalos_Fous_960.png
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: wallpaper DP-2, /home/nimitz/Pictures/astropix/IceHalos_Fous_960.png
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: wallpaper DP-3, /home/nimitz/Pictures/astropix/IceHalos_Fous_960.png
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: preload ~/Pictures/astropix/IceHalos_Fous_960.jpg
+[LOG] Ignoring request to preload /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg as it already is preloaded!
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: wallpaper DP-1, ~/Pictures/astropix/IceHalos_Fous_960.jpg
+[LOG] Buffer created for target /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg, Shared Memory usage: 59.0MB
+[LOG] Buffer created for target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg, Shared Memory usage: 59.0MB
+[LOG] Total SM usage for all buffers: 368.6MB
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: wallpaper DP-2, ~/Pictures/astropix/IceHalos_Fous_960.jpg
+[LOG] Buffer created for target /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg, Shared Memory usage: 14.7MB
+[LOG] Total SM usage for all buffers: 383.4MB
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Received a request: wallpaper DP-3, ~/Pictures/astropix/IceHalos_Fous_960.jpg
+[LOG] Accepted incoming socket connection request on fd 4
+[LOG] Closing Accepted Connection
+[LOG] configure for DP-1
+[LOG] handlePreferredScale: 1.00 for 739e20005620
+[LOG] configure for DP-1
+[LOG] Image data for DP-1: /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg at [0.00, -50.00], scale: 2.67 (original image size: [960, 640])
+[LOG] Submitting viewport dest size 2560x1440 for 739e20005620
+[LOG] configure for DP-2
+[LOG] handlePreferredScale: 1.00 for 739e20005760
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] handlePreferredScale: 1.00 for 60acbf43ca50
+[LOG] configure for DP-3
+[LOG] Image data for DP-2: /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg at [0.00, -20.00], scale: 2.00 (original image size: [960, 640])
+[LOG] Submitting viewport dest size 1920x1200 for 739e20005760
+[LOG] Image data for DP-3: /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg at [-280.00, 0.00], scale: 3.00 (original image size: [960, 640])
+[LOG] Submitting viewport dest size 1200x1920 for 60acbf43ca50
+[LOG] handlePreferredScale: 1.50 for 739e20005620
+[LOG] Image data for DP-1: /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg at [0.00, -50.00], scale: 4.00 (original image size: [960, 640])
+[LOG] Submitting viewport dest size 2560x1440 for 739e20005620
+[LOG] handlePreferredScale: 1.00 for 739e20005760
+[LOG] handlePreferredScale: 1.00 for 60acbf43ca50
+[LOG] handlePreferredScale: 1.50 for 739e20005620
+[LOG] No pointer capability from the compositor
+[LOG] Buffer created for target /home/nimitz/Pictures/astropix/IceHalos_Fous_960.jpg, Shared Memory usage: 74.6MB
+[LOG] Buffer created for target /home/nimitz/Pictures/backgrounds/nicepic1080.jpg, Shared Memory usage: 74.6MB
+[LOG] Total SM usage for all buffers: 532.7MB

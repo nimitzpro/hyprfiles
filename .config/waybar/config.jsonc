@@ -11,12 +11,12 @@
     // "wlr/scratchpad",
     "hyprland/window"
   ],
-  //    "modules-center": ["hyprland/window"], "mpd"?
+  // "modules-center": ["hyprland/workspaces"], // "mpd"?
   "modules-right": [
     "mpris",
     "idle_inhibitor",
     // "custom/weather", // unstable behaviour,crashes bar
-    // "cava", // waybar-cava fails to compile, using regular waybar for now
+    "cava", // waybar-cava fails to compile, using regular waybar for now
     "pulseaudio",
     "bluetooth",
     "network",
@@ -240,10 +240,10 @@
     "on-click": "baobab && hyprctl activewindow | hyprctl setprop address:$(grep -oP '(?<=Window )[0-9a-zA-Z]*') floating 1",
   },
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    // "thermal-zone": 3,
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
     "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
+    "format-critical": "{temperatureC}°C {icon}",
     "format": "{icon}",
     "format-icons": [
       "",

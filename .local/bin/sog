@@ -1,7 +1,20 @@
 #!/bin/bash
 
+if [[ $1 == "e" ]]; then
+    if [[ "$2" ]]; then
+        list=$2
+    else
+        list="$(find $HOME/.config/hypr/saved/ -mindepth 1 -printf '%P\n' 2>/dev/null | fzf)"
+    fi
+    nvim $HOME/.config/hypr/saved/$list
+    exit 0
+fi
+
 list=''
-if [[ $1 == "open" ]]; then
+hyprctl dispatch exec '[workspace 10]' "nohup kitty --class placeholder"
+
+# open saved group
+if [[ $1 == "o" ]]; then
     if [[ "$2" ]]; then
         list=$2
     else
@@ -11,11 +24,13 @@ if [[ $1 == "open" ]]; then
         echo "got to here: $line"
         if [ -f "$HOME/$line" ]; then
             echo "got inside: $line"
-            hyprctl dispatch exec '[workspace 10]' "nohup xdg-open '$HOME/$line'"
+            hyprctl dispatch exec '[workspace 10; moveintogroup]' "nohup xdg-open '$HOME/$line'"
+            sleep .1
         else
             echo "cring: $line"
         fi
     done
+# new group + maybe save
 else
     list="$(find ~/ -mindepth 1 -printf '%P\n' 2>/dev/null | fzf -m)"
     echo $list
@@ -24,15 +39,20 @@ else
         if [ -f "$HOME/$line" ]; then
             echo "got inside: $line"
             # hyprctl exec, "[workspace $ws silent; togglegroup]" nohup xdg-open "$HOME/$choice" >/dev/null 2>&1 &
-            hyprctl dispatch exec '[workspace 10]' "nohup xdg-open '$HOME/$line'"
+            hyprctl dispatch exec '[workspace 10; moveintogroup]' "nohup xdg-open '$HOME/$line'"
+            sleep .1
         else
             echo "cring: $line"
             # hyprctl dispatch exec "[workspace 10; togglegroup]" 'kitty --hold sh -c "cd $HOME/$line"'
         fi
     done
-    if [[ $1 == "save" ]]; then
+    if [[ $1 == "s" ]]; then
         mkdir -p $HOME/.config/hypr/saved
         echo "$list" >$HOME/.config/hypr/saved/$2
     fi
     # $(hyprctl dispatch togglegroup class:^(org.pwmt.zathura)$)
 fi
+sleep .1
+hyprctl dispatch closewindow placeholder
+hyprctl workspace 10
+hyprctl dispatch fullscreen 0

@@ -3,10 +3,11 @@ return {
         "LazyVim/LazyVim",
         opts = {
             colorscheme = "catppuccin-mocha",
+            transparent_background = "true",
         },
     },
     {
-        "catppuccin/nvim",
+        "catppuccin",
         opts = {
             term_colors = false,
             transparent_background = true,
@@ -57,16 +58,16 @@ return {
         ft = "typst",
         lazy = false,
     },
-    {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end,
-    },
+    -- {
+    --     "kylechui/nvim-surround",
+    --     version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require("nvim-surround").setup({
+    --             -- Configuration here, or leave empty to use defaults
+    --         })
+    --     end,
+    -- },
     {
         "hrsh7th/nvim-cmp",
         ---@param opts cmp.ConfigSchema
@@ -108,5 +109,10 @@ return {
                 end, { "i", "s" }),
             })
         end,
+    },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
 }

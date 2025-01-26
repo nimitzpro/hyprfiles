@@ -1,0 +1,6 @@
+[Unit]
+Description=Update Wallpaper to NASA APOD
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/nimitz/.local/bin/astropix
