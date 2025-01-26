@@ -1,0 +1,28 @@
+#!/bin/sh
+
+./save .backup
+
+rsync -av .config/hypr ~/.config
+rsync -av .config/waybar ~/.config
+rsync -av .config/mako ~/.config
+rsync -av .config/kitty ~/.config
+
+unalias cp # remove confirmation for overwrite on copy
+cp -rfv .zshrc ~/.zshrc
+cp -rfv .gitconfig ~/.gitconfig
+cp -rfv .vimrc ~/.vimrc
+cp -rfv .latexmkrc ~/.latexmkrc
+
+rsync -av .config/fontconfig ~/.config
+
+rsync -av .config/feh ~/.config
+
+rsync -av .config/darkman ~/.config
+
+rsync -av .config/lf ~/.config
+
+rsync -av .config/nvim ~/.config
+
+# copy children into dir without overwriting existing
+rsync -av .local/bin/* ~/.local/bin
+rsync -av .local/share/fonts/* ~/.local/share/fonts
