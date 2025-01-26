@@ -24,8 +24,8 @@
 # cd "$DL_DIR_NAME"
 
 yt-dlp \
-  -x \
-  -o "/home/nimitz/Audio/%(playlist)/%(title).200B.%(ext)s" \
-  -o "chapter:/home/nimitz/Music/%(playlist)s/%(title)s/%(section_title)s.%(ext)s" \
-  --split-chapters \
-  "$@"
+    -x \
+    -o "/home/nimitz/Audio/%(playlist)/%(title).200B.%(ext)s" \
+    -o "chapter:/home/nimitz/Music/%(playlist)s/%(title)s/%(section_title)s.%(ext)s" \
+    --split-chapters \
+    "$@"
